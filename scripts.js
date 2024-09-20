@@ -304,7 +304,7 @@ var markersData = [
             { src: 'images/N2/BM/BM 3.jpg', thumb: 'bm3.jpg' },
             { src: 'images/N2/BM/BM 4.jpg', thumb: 'bm4.jpg' }
         ],
-        address:"Tuyến đường 373, ấp 14, xã Bình Mỹ Bàu Lách, huyện Củ Chi, TP. Hồ Chí Minh",
+        address:"Tuyến đường 373, ấp 14, xã Bình Mỹ, huyện Củ Chi, TP. Hồ Chí Minh",
         description: ""
     },
     {
