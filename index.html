@@ -4,18 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bản đồ trồng cây xanh</title>
-    <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <!-- LightGallery CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/css/lightgallery.min.css">
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
     <style>
-    /* Reset và thiết lập cơ bản */
+
     body, html {
         height: 100%;
         margin: 0;
@@ -25,17 +21,16 @@
         font-family: Arial, sans-serif;
     }
 
-    /* CSS cho header */
     header {
         position: relative;
         color: white;
         text-align: center;
-        padding: 1rem 0; /* Tăng padding để phù hợp với overlay */
+        padding: 1rem 0;
         display: flex;
         flex-direction: column;
         align-items: center;
         overflow: hidden;
-        z-index: 1; /* Đảm bảo nội dung nằm trên overlay */
+        z-index: 1;
     }
 
     header::before {
@@ -45,7 +40,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-image: url('images/BG.jpg'); /* Đảm bảo đường dẫn đúng */
+        background-image: url('images/BG.jpg'); /*Thay đổi đường dẫn ảnh nền header tại đây*/
         background-size: cover;
         background-position: center;
         opacity: 0.7;
@@ -80,7 +75,7 @@
 
     header h1 {
         margin: 0;
-        font-size: 1.4em; /* Tăng kích thước tiêu đề */
+        font-size: 1.4em; /* Tăng/giảm kích thước tiêu đề */
         position: relative;
         z-index: 1;
         font-family: 'Yeseva One', cursive;
@@ -88,21 +83,19 @@
         letter-spacing: 0.1em;
     }
 
-    /* CSS cho map */
     #map {
         flex-grow: 1;
         width: 100%;
     }
 
-    /* CSS cho footer */
     footer {
         position: relative;
         color: white;
         text-align: center;
-        padding: 1rem 0; /* Tăng padding để phù hợp với overlay */
+        padding: 1rem 0;
         font-size: 0.9em;
         overflow: hidden;
-        z-index: 1; /* Đảm bảo nội dung nằm trên overlay */
+        z-index: 1;
     }
 
     footer::before {
@@ -112,7 +105,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-image: url('images/BG.jpg'); /* Đảm bảo đường dẫn đúng */
+        background-image: url('images/BG.jpg'); /*Thay đổi đường dẫn ảnh nền footer tại đây*/
         background-size: cover;
         background-position: center;
         opacity: 0.7;
@@ -137,7 +130,6 @@
         z-index: 1;
     }
 
-    /* Style cho popup */
     .custom-popup {
         max-width: 300px;
     }
@@ -160,16 +152,12 @@
         padding: 5px 0;
     }
 
-    /* Style cho Lightbox */
     .lg-backdrop {
         background-color: rgba(0, 0, 0, 0.85);
     }
     </style>
-    <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <!-- LightGallery JS -->
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/lightgallery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/plugins/zoom/lg-zoom.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/plugins/fullscreen/lg-fullscreen.min.js"></script>
@@ -190,10 +178,8 @@
     // Tọa độ trung tâm bản đồ (Củ Chi, TP. Hồ Chí Minh)
     var center = [10.973042, 106.494047];
 
-    // Khởi tạo bản đồ
     var map = L.map('map').setView(center, 11);
 
-    // Thêm tile layer từ OpenStreetMap
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
@@ -213,7 +199,7 @@
         popupAnchor: [0, -32]
     });
 
-    // Nếu bạn muốn thêm loại marker khác, hãy định nghĩa thêm icon tương ứng
+    // Nếu anh/chị muốn thêm loại marker khác, hãy định nghĩa thêm icon tương ứng
     // var customIcon3 = L.icon({
     //     iconUrl: 'images/marker3.png', // Icon cho loại 'num3'
     //     iconSize: [32, 32],
@@ -576,21 +562,16 @@
         // Thêm các marker khác ở đây theo cấu trúc tương tự
     ];
 
-    // Hàm tạo nội dung popup cho mỗi marker
     function createPopupContent(marker, index) {
-        // Tạo div chứa nội dung popup
         var popupDiv = document.createElement('div');
         popupDiv.classList.add('custom-popup');
 
-        // Tạo Swiper container
         var swiperContainer = document.createElement('div');
         swiperContainer.classList.add('swiper', 'popup-swiper-' + index);
 
-        // Tạo wrapper cho Swiper
         var swiperWrapper = document.createElement('div');
         swiperWrapper.classList.add('swiper-wrapper');
 
-        // Tạo các slide cho Swiper
         marker.images.forEach(function(image) {
             var swiperSlide = document.createElement('div');
             swiperSlide.classList.add('swiper-slide');
@@ -598,7 +579,7 @@
             var img = document.createElement('img');
             img.src = image.src;
             img.alt = 'Image';
-            img.setAttribute('data-src', image.src); // Dùng cho LightGallery
+            img.setAttribute('data-src', image.src);
 
             swiperSlide.appendChild(img);
             swiperWrapper.appendChild(swiperSlide);
@@ -606,7 +587,6 @@
 
         swiperContainer.appendChild(swiperWrapper);
 
-        // Thêm pagination và navigation cho Swiper
         var pagination = document.createElement('div');
         pagination.classList.add('swiper-pagination');
         swiperContainer.appendChild(pagination);
@@ -619,15 +599,12 @@
         nextButton.classList.add('swiper-button-next');
         swiperContainer.appendChild(nextButton);
 
-        // Thêm Swiper vào popup
         popupDiv.appendChild(swiperContainer);
 
-        // Thêm địa chỉ vào popup
         var addressP = document.createElement('p');
         addressP.innerHTML = `<strong>${marker.address}</strong>`;
         popupDiv.appendChild(addressP);
 
-        // Thêm mô tả vào popup
         var descriptionP = document.createElement('p');
         descriptionP.textContent = marker.description;
         popupDiv.appendChild(descriptionP);
@@ -635,29 +612,20 @@
         return popupDiv;
     }
 
-    // Thêm các marker vào bản đồ
     markersData.forEach(function(marker, index) {
-        // Tạo nội dung popup
         var popupContent = createPopupContent(marker, index);
-
-        // Tạo Leaflet popup
         var leafletPopup = L.popup({
             maxWidth: 300
         }).setContent(popupContent);
 
-        // Tạo marker và thêm vào bản đồ với icon và zIndexOffset tương ứng
         var leafletMarker = L.marker(marker.coords, { 
             icon: getIconByType(marker.type),
-            zIndexOffset: getZIndexOffset(marker.type) // Thêm zIndexOffset ở đây
+            zIndexOffset: getZIndexOffset(marker.type)
         }).addTo(map)
         .bindPopup(leafletPopup);
 
-        // Khi popup mở, khởi tạo Swiper và LightGallery
         leafletMarker.on('popupopen', function() {
-            // Lấy nội dung popup vừa mở
             var currentPopup = this.getPopup().getElement();
-
-            // Khởi tạo Swiper
             var swiperElement = currentPopup.querySelector('.swiper');
             var swiperInstance = new Swiper(swiperElement, {
                 loop: true,
@@ -671,7 +639,6 @@
                 },
             });
 
-            // Khởi tạo LightGallery
             var lightbox = lightGallery(currentPopup.querySelector('.swiper'), {
                 selector: 'img',
                 plugins: [lgZoom, lgFullscreen],
@@ -684,7 +651,6 @@
                 }
             });
 
-            // Mở Lightbox khi click vào ảnh
             var images = currentPopup.querySelectorAll('.swiper-slide img');
             images.forEach(function(img, imgIndex) {
                 img.addEventListener('click', function() {
