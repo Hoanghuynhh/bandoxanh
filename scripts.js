@@ -585,3 +585,34 @@ markersData.forEach(function(markerData, index) {
         greenRouteList.appendChild(listItem);
     }
 });
+
+// Custom Legend Control
+var LegendControl = L.Control.extend({
+    options: { position: 'bottomleft' },
+    
+    onAdd: function(map) {
+        var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-legend');
+        container.style.backgroundColor = '#ffffff90';
+        container.style.padding = '10px';
+        container.style.width = 'auto';
+        container.style.maxWidth = '200px';
+        container.style.fontSize = '0.9em';
+        container.style.zIndex = '800';
+        
+        container.innerHTML += `
+            <div style="display: flex; align-items: center; margin-bottom: 5px;">
+                <img src='images/marker.png' alt='Marker 1' style='width: 20px; height: 20px; margin-right: 5px;' />
+                <span>Địa điểm trồng cây xanh</span>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <img src='images/marker 2.png' alt='Marker 2' style='width: 20px; height: 20px; margin-right: 5px;' />
+                <span>Tuyến đường Sáng - Xanh - Sạch - Đẹp - Văn minh - An Toàn</span>
+            </div>
+        `;
+        
+        return container;
+    }
+});
+
+// Add Legend Control to the Map
+map.addControl(new LegendControl());
