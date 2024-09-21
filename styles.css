@@ -81,7 +81,7 @@ footer {
     padding: 1rem 0;
     font-size: 0.9em;
     overflow: hidden;
-    z-index: 1;
+    z-index: 1200;
 }
 
 footer::before {
@@ -211,7 +211,7 @@ footer p {
 #location-menu {
     position: fixed;
     top: 90px;
-    bottom: 55px;
+    bottom: 50px;
     right: -290px;
     background-color: #ffffff;
     width: 230px;
@@ -219,7 +219,7 @@ footer p {
     transition: right 0.3s ease, box-shadow 0.3s ease;
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
     padding: 15px;
-    z-index: 900;
+    z-index: 1000;
     border-radius: 10px 0 0 10px;
     border-left: 3px solid #117554;
 }
